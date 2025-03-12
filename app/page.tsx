@@ -7,6 +7,7 @@ export default function Home() {
     <main>
       <h1 className="text-3xl">Hello World!</h1>
       <Link href="/users">Users</Link>
+      <br />
       <ProductCard></ProductCard>
     </main>
   );
