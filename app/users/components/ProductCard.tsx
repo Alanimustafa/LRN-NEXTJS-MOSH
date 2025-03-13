@@ -10,6 +10,7 @@ const ProductCard = () => {
     <div>
         <div>ProductCard</div>
         <Link href="/">Home</Link>
+        
         <br />
         <AddToCart/>
     </div>

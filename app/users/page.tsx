@@ -6,6 +6,8 @@ const UsersPage = () => {
     <>
         <div>UsersPage</div>
         <Link href="/">Home</Link>
+        <br />
+        <Link href='/users/new'>New user</Link>
     </>
   )
 }
