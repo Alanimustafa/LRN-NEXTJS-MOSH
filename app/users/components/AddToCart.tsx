@@ -7,8 +7,12 @@ const AddToCart = () => {
     const clicked = () => {
         console.log('Product added to cart')
     }
-  return (
-    <button onClick={clicked}>Add to cart</button>
+  return ( 
+      <>
+        <div>
+          <button onClick={clicked}>Add to cart</button>
+        </div>
+      </>
 
   )
 }
