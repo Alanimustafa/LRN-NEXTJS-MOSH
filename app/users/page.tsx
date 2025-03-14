@@ -21,17 +21,20 @@ const UsersPage = async () => {
         <br />
         <br />
         <div className="currentUsers">
-          <h2 className='text-2xl bg-red-100'>Current Users</h2>
+          <h2 className='text-2xl bg-red-100'>Current Users List</h2>
+          <h2 className="timerendering bg-blue-100"> 
+            {new Date().toLocaleTimeString()}
+          </h2>
           <h3 className="userName">
-            <ol>
+            <ul>
               {users.map((user) => (
                 <li key={user.id}>
                   <Link href={`/users/${user.id}`}>
-                    {user.id}{'-'} {user.name}
+                    {user.name}
                   </Link>
                 </li>
               ))}
-            </ol>
+            </ul>
           </h3>
         </div>
     </>
