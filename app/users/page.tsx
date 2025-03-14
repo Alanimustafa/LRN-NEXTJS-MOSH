@@ -9,7 +9,9 @@ const UsersPage = async () => {
     email: string,
   }
 
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const res = await fetch('https://jsonplaceholder.typicode.com/users', {cache: 'no-store'}); // catching disabled for demonstration purposes. Next JS automatically caches responses, so no need to worry about caching here.
+
+  
   const users: User[] = await res.json();
 
   return (
