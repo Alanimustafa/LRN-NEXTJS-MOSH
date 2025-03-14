@@ -8,9 +8,8 @@ const ProductCard = () => {
   return (
     <>
     <div>
-        <div>ProductCard</div>
+        <h3>ProductCard</h3>
         <Link href="/">Home</Link>
-        
         <br />
         <AddToCart/>
     </div>
