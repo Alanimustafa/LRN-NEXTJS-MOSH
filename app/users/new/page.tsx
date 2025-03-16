@@ -8,6 +8,8 @@ const NewUserPage = () => {
         <h1 className='text-3xl bg-blue-100'>NewUserPage</h1>
         <br />
         <Link href="/">Home</Link>
+        <br />
+        <button className="btn btn-soft btn-accent">TestButton</button>
       </div>
     </>
   )

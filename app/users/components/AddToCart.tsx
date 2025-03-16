@@ -10,7 +10,7 @@ const AddToCart = () => {
   return ( 
       <>
         <div>
-          <button onClick={clicked}>Add to cart</button>
+          <button onClick={clicked} className='btn btn-primary'>Add to cart</button>
         </div>
       </>
 
