@@ -28,15 +28,24 @@ const UsersPage = async () => {
             {new Date().toLocaleTimeString()}
           </h2>
           <h3 className="userName">
-            <ul>
+            <table className='table table-bordered'>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
               {users.map((user) => (
-                <li key={user.id}>
-                  <Link href={`/users/${user.id}`}>
-                    {user.name}
-                  </Link>
-                </li>
+                <tr key={user.id}>
+                  <th><Link href={`/users/${user.id}`}>{user.id}.</Link></th> 
+                  <th><Link href={`/users/${user.id}`}>{user.name}.</Link></th> 
+                  <th><Link href={`/users/${user.id}`}>{user.email}.</Link></th> 
+                </tr>
               ))}
-            </ul>
+              </tbody>
+            </table>
           </h3>
         </div>
     </>
