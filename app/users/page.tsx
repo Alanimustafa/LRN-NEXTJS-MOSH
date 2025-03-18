@@ -1,19 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+import UserTable from './UserTable';
 
-const UsersPage = async () => {
+const UsersPage = () => {
 
-  interface User {
-    id: number,
-    name: string,
-    email: string,
-  }
-
-  const res = await fetch('https://jsonplaceholder.typicode.com/users'); // catching disabled for demonstration purposes. Next JS automatically caches responses, so no need to worry about caching here.
-
-
-  const users: User[] = await res.json();
-
+  
   return (
     <>
         <div>UsersPage</div>
@@ -28,24 +19,7 @@ const UsersPage = async () => {
             {new Date().toLocaleTimeString()}
           </h2>
           <h3 className="userName">
-            <table className='table table-bordered'>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-              {users.map((user) => (
-                <tr key={user.id}>
-                  <th><Link href={`/users/${user.id}`}>{user.id}.</Link></th> 
-                  <th><Link href={`/users/${user.id}`}>{user.name}.</Link></th> 
-                  <th><Link href={`/users/${user.id}`}>{user.email}.</Link></th> 
-                </tr>
-              ))}
-              </tbody>
-            </table>
+            <UserTable/>
           </h3>
         </div>
     </>

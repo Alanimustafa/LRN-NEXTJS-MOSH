@@ -10,7 +10,7 @@ const ProductCard = () => {
     <>
     <div>
         <h3 className="text-5lx bg-blue-100">ProductCard</h3>
-        <Link href="/" className='bg-sky-100 hover:bg-sky-300'>Home</Link>
+        <Link href="/" className='btn btn-soft btn-primary  '>Home</Link>
         <br />
         <AddToCart/>
     </div>
