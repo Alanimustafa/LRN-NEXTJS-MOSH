@@ -1,8 +1,16 @@
 import React from 'react'
 
-const PhotoDetails = () => {
+interface Props {
+    params: {
+        id: number,
+        photoId: number
+    }
+}
+const PhotoDetails = ({params: { id, photoId}} : Props) => {
+
   return (
-    <div>PhotoDetails</div>
+    <div>PhotoDetails {id} {photoId}</div>
+
   )
 }
 

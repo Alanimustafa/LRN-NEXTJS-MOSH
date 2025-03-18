@@ -1,4 +1,5 @@
 import React from 'react';
+import PhotoDetails from './[PhotoId]/page';
 
 interface Props {
     params: { id: number }
@@ -6,7 +7,9 @@ interface Props {
 
 const UserDetailPage = ({params: {id}} : Props) => {
   return (
-    <div>UserDetailPage {id}</div>
+    <div>UserDetailPage {id}
+    
+    </div>
   )
 }
 
