@@ -21,6 +21,7 @@ const UsersPage = () => {
           <h3 className="userName">
             <UserTable/>
           </h3>
+          <br />
         </div>
     </>
   )
