@@ -4,11 +4,11 @@ interface Props {
     params : { slug: string[] }
 };
 
-const ProductsPage =  (props : Props) => {
-    const params = props.params;
+const ProductsPage = async (props : Props) => {
+    const params = await props.params;
     const { slug } = params;
   return (
-    <div>ProductsPage { slug } </div>
+    <div> { slug } ProductsPage  </div>
   )
 }
 
