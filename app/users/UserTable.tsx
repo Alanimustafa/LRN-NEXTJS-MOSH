@@ -17,9 +17,15 @@ const UserTable = async () => {
         <table className='table table-bordered'>
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
+                  <th>
+                    <Link href='/users?sortOrder=id'>ID</Link>
+                    </th>
+                  <th>
+                    <Link href='/users?sortOrder=name'>Name</Link>
+                    </th>
+                  <th>
+                    <Link href='/users?sortOrder=email'>email</Link>
+                  </th>
                 </tr>
               </thead>
               <tbody>
