@@ -2,8 +2,13 @@ import React from 'react'
 import Link from 'next/link'
 import UserTable from './UserTable';
 
-const UsersPage = () => {
-
+interface Props {
+  searchParams : {
+    sortOrder : string
+  }
+}
+const UsersPage = ( {searchParams : { sortOrder }}: Props) => {
+console.log (sortOrder);
   
   return (
     <>
