@@ -24,7 +24,7 @@ console.log (sortOrder);
             {new Date().toLocaleTimeString()}
           </h2>
           <h3 className="userName">
-            <UserTable/>
+            <UserTable sortOrder = {sortOrder}/>
           </h3>
           <br />
         </div>

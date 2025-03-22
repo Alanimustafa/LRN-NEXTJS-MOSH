@@ -1,12 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 
-const UserTable = async () => {
-    interface User {
-        id: number,
-        name: string,
-        email: string,
-      };
+interface User {
+    id: number,
+    name: string,
+    email: string,
+  };
+
+interface Props {
+  sortOrder : string;
+}
+
+const UserTable = async ( { sortOrder} : Props) => {
 
       const res = await fetch ('https://jsonplaceholder.typicode.com/users');
       const users: User[] = await res.json();
