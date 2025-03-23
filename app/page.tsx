@@ -14,6 +14,8 @@ export default function Home() {
       <Link href="/about">About</Link>
       <br />
 
+      <Link href="/admin">Admin</Link>
+
     </main>
   );
 }
