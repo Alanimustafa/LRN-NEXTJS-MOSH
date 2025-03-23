@@ -1,11 +1,15 @@
-import React, { Children } from 'react'
+import React, { ReactNode} from 'react'; 
 
-const adminLayout = () => {
+interface Props {
+  children : ReactNode;
+}
+
+const adminLayout = ({ children }: Props) => {
   return (
     <>
         <div className='flex'>
             <aside className='bg-slate-200 p-5 mr-5'>Admin Side Bar</aside>
-            <div>{ Children }</div>
+            <div>{ children }</div>
         </div>
     </>
   )

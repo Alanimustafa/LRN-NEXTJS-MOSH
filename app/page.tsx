@@ -11,10 +11,10 @@ export default function Home() {
       <br />
       <ProductCard/>
       <br />
-      <Link href="/about">About</Link>
+      <Link href="/about" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">About</Link>
       <br />
-
-      <Link href="/admin">Admin</Link>
+      <br />
+      <Link href="/admin" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">Admin</Link>
 
     </main>
   );
