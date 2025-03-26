@@ -13,9 +13,9 @@ console.log (sortOrder);
   return (
     <>
         <div>UsersPage</div>
-        <Link href="/">Home</Link>
+        <Link href="/" className='btn btn-soft btn-primary'>Home</Link>
         <br />
-        <Link href='/users/new'>New user</Link>
+        <Link href='/users/new' className='btn btn-soft btn-secondary'>New user</Link>
         <br />
         <br />
         <div className="currentUsers">
