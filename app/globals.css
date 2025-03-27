@@ -28,6 +28,15 @@
 }
 
 body {
-  padding: 1rem;
+  padding: 0.5rem;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+   h1 {
+    @apply font-medium; 
+    @apply text-3xl;
+    @apply text-center;
+    @apply text-orange-300;
+  }
 }

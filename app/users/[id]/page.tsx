@@ -6,8 +6,8 @@ interface Props {
 
 const UserDetailPage = ({params: {id}} : Props) => {
   return (
-    <div>UserDetailPage {id}
-    
+    <div>
+      <h1 className='text-2xl'> UserDetailPage {id}</h1>
     </div>
   )
 }

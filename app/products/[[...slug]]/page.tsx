@@ -10,7 +10,9 @@ const ProductsPage = async (props : Props) => {
     const { slug } = params;
   return (
     <>
-    <div> { slug } ProductsPage  </div>
+    <div> 
+      <h1>{ slug } ProductsPage</h1>  
+    </div>
     <Link href="/">
         <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">Home</button>
     </Link>

@@ -26,8 +26,8 @@ const UserTable = async ( {sortOrder} : Props) => {
   return ( 
     <>
         <div>UserTable</div>
-        <table className='table table-bordered'>
-              <thead>
+        <table className='table table-bordered text-2xl text-orange-300' >
+              <thead className='text-yellow-100 text-xl'>
                 <tr>
                   <th>
                     <Link href='/users?sortOrder=id'>ID</Link>
