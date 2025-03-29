@@ -1,9 +1,17 @@
 import React from 'react'
-import Link from 'next/link'
 
 interface Props {
     params : { slug: string[] }
 };
+
+interface productList {
+  id: number,
+  title: string,
+  size: string,
+  color: string,
+}
+
+  
 
 const ProductsPage = async (props : Props) => {
     const params = await props.params;
@@ -13,9 +21,7 @@ const ProductsPage = async (props : Props) => {
     <div> 
       <h1>{ slug } ProductsPage</h1>  
     </div>
-    <Link href="/">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">Home</button>
-    </Link>
+    
     </>
   )
 }
