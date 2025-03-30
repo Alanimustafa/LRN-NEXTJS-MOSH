@@ -6,11 +6,16 @@ interface User {
     id: number,
     name: string,
     email: string,
+    address: {
+        city: string,
+        street: string,
+        zipcode: string
+    },
   };
 
 interface Props {
   sortOrder : string;
-}
+};
 
 const UserTable = async ( {sortOrder} : Props) => {
 
@@ -20,6 +25,7 @@ const UserTable = async ( {sortOrder} : Props) => {
       const sortedUsers = sort(users).asc(user =>
         sortOrder === "email" ? user.email :
         sortOrder === "name" ? user.name :
+        sortOrder === "address" ? user.address.city :
         user.id
       );
 
@@ -38,6 +44,9 @@ const UserTable = async ( {sortOrder} : Props) => {
                   <th>
                     <Link href='/users?sortOrder=email'>Email</Link>
                   </th>
+                  <th>
+                    <Link href='/users?sortOrder=address'>Address</Link>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -46,6 +55,7 @@ const UserTable = async ( {sortOrder} : Props) => {
                   <th><Link href={`/users/${user.id}`}>{user.id}.</Link></th> 
                   <th><Link href={`/users/${user.id}`}>{user.name}.</Link></th> 
                   <th><Link href={`/users/${user.id}`}>{user.email}.</Link></th> 
+                  <th><Link href={`/users/${user.id}`}>{user.address.city}.</Link></th> 
                 </tr>
               ))}
               </tbody>
