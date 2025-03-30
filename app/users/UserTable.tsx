@@ -11,13 +11,19 @@ interface User {
         street: string,
         zipcode: string
     },
+    phone: string,
+    company : {
+        name: string,
+        catchPhrase: string,
+        bs: string
+    },
   };
 
 interface Props {
   sortOrder : string;
 };
 
-const UserTable = async ( {sortOrder} : Props) => {
+const UserTable = async ( { sortOrder} : Props) => {
 
       const res = await fetch ('https://jsonplaceholder.typicode.com/users');
       const users: User[] = await res.json();
@@ -26,6 +32,7 @@ const UserTable = async ( {sortOrder} : Props) => {
         sortOrder === "email" ? user.email :
         sortOrder === "name" ? user.name :
         sortOrder === "address" ? user.address.city :
+        sortOrder === "company" ? user.company.name :
         user.id
       );
 
@@ -37,15 +44,21 @@ const UserTable = async ( {sortOrder} : Props) => {
                 <tr>
                   <th>
                     <Link href='/users?sortOrder=id'>ID</Link>
-                    </th>
+                  </th>
                   <th>
                     <Link href='/users?sortOrder=name'>Name</Link>
-                    </th>
+                  </th>
+                  <th>
+                    <Link href='/users?sortOrder=company'>Company Name</Link>
+                  </th>
                   <th>
                     <Link href='/users?sortOrder=email'>Email</Link>
                   </th>
                   <th>
-                    <Link href='/users?sortOrder=address'>Address</Link>
+                    <Link href='/users?sortOrder=phone'>Phone#</Link>
+                  </th>
+                  <th>
+                    <Link href='/users?sortOrder=address'>City</Link>
                   </th>
                 </tr>
               </thead>
@@ -54,7 +67,9 @@ const UserTable = async ( {sortOrder} : Props) => {
                 <tr key={user.id}>
                   <th><Link href={`/users/${user.id}`}>{user.id}.</Link></th> 
                   <th><Link href={`/users/${user.id}`}>{user.name}.</Link></th> 
+                  <th><Link href={`/users/${user.id}`}>{user.company.name}.</Link></th> 
                   <th><Link href={`/users/${user.id}`}>{user.email}.</Link></th> 
+                  <th><Link href={`/users/${user.id}`}>{user.phone}.</Link></th> 
                   <th><Link href={`/users/${user.id}`}>{user.address.city}.</Link></th> 
                 </tr>
               ))}
