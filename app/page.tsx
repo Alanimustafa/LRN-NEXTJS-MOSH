@@ -15,6 +15,7 @@ export default function Home() {
       <br />
       <br />
       <Link href="/admin" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">Admin</Link>
+      <Link href="/photos" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">Photos</Link>
 
     </main>
   );
