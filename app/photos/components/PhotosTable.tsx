@@ -52,11 +52,21 @@ const PhotosTable = async ({sortOrder} : Props) => {
         <tbody className='text-yellow-200 text-lg'>
             {sortedPhotos.map(photo => (
             <tr key={photo.id}>
-                <td>{photo.id}</td>
-                <td>{photo.albumId}</td>
-                <td>{photo.title}</td>
-                <td>{photo.url}</td>
-                <td>{photo.thumbnailUrl}</td> 
+                <th>
+                    <Link href={`/photos/${photo.id}`}>{photo.id}</Link>
+                </th>
+                <th>
+                    <Link href={`/photos/${photo.albumId}`}>{photo.albumId}</Link>
+                </th>
+                <th>
+                    <Link href={`/photos/${photo.title}`}>{photo.title}</Link>
+                </th>
+                <th>
+                    <Link href={`/photos/${photo.url}`}>{photo.url}</Link>
+                    </th>
+                <th>
+                    <Link href={`/photos/${photo.thumbnailUrl}`}>{photo.thumbnailUrl}</Link>
+                </th> 
             </tr> 
             ))}
         </tbody>
