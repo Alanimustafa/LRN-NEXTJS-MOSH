@@ -56,16 +56,16 @@ const PhotosTable = async ({sortOrder} : Props) => {
                     <Link href={`/photos/${photo.id}`}>{photo.id}</Link>
                 </th>
                 <th>
-                    <Link href={`/photos/${photo.albumId}`}>{photo.albumId}</Link>
+                    <Link href={`/photos/${photo.id}`}>{photo.albumId}</Link>
                 </th>
                 <th>
-                    <Link href={`/photos/${photo.title}`}>{photo.title}</Link>
+                    <Link href={`/photos/${photo.id}`}>{photo.title}</Link>
                 </th>
                 <th>
-                    <Link href={`/photos/${photo.url}`}>{photo.url}</Link>
+                    <Link href={`/photos/${photo.id}`}>{photo.url}</Link>
                     </th>
                 <th>
-                    <Link href={`/photos/${photo.thumbnailUrl}`}>{photo.thumbnailUrl}</Link>
+                    <Link href={`/photos/${photo.id}`}>{photo.thumbnailUrl}</Link>
                 </th> 
             </tr> 
             ))}
