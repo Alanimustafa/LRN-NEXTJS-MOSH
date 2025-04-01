@@ -1,9 +1,16 @@
 import React from 'react'
-
-const PhotosTable = () => {
+import PhotosTable from './components/PhotosTable';
+const Photos = () => {
   return (
-    <div>PhotosTable</div>
+    <>
+     <div>
+        <h1>Photos Page</h1>
+     </div>
+        <div>
+            <PhotosTable/>
+        </div>
+    </>
   )
 }
 
-export default PhotosTable
+export default Photos

@@ -17,10 +17,51 @@ interface Props {
 const PhotosTable = async ({sortOrder} : Props) => {
     const res = await fetch ('https://jsonplaceholder.typicode.com/photos');
     const photos : Photo[] = await res.json();
-    console.log(photos);
+    const sortedPhotos = sort(photos).asc(photo =>
+        sortOrder === "title" ? photo.title :
+        sortOrder === "url" ? photo.url :
+        sortOrder === "thumbnailUrl" ? photo.thumbnailUrl :
+        photo.id
+      );
 
   return (
-    <div>PhotosTable</div>
+    <>
+    <div>
+        <h2>PhotosTable</h2>
+    </div>
+    <table className='table table-bordered text-2xl text-orange-300' >
+        <thead className='text-yellow-100 text-xl'>
+            <tr>
+            <th>
+                <Link href='/photos?sortOrder=id'>ID</Link>
+            </th>
+            <th>
+                <Link href='/photos?sortOrder=albumId'>Album ID</Link>
+            </th>
+            <th>
+                <Link href='/photos?sortOrder=title'>Title</Link>
+            </th>
+            <th>
+                <Link href='/photos?sortOrder=url'>URL</Link>
+            </th>
+            <th>
+                <Link href='/photos?sortOrder=thumbnailUrl'>Thumbnail URL</Link>     
+            </th> 
+            </tr> 
+        </thead> 
+        <tbody className='text-yellow-200 text-lg'>
+            {sortedPhotos.map(photo => (
+            <tr key={photo.id}>
+                <td>{photo.id}</td>
+                <td>{photo.albumId}</td>
+                <td>{photo.title}</td>
+                <td>{photo.url}</td>
+                <td>{photo.thumbnailUrl}</td> 
+            </tr> 
+            ))}
+        </tbody>
+    </table>
+    </>
   )
 }
 
