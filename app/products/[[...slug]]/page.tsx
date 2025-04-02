@@ -19,7 +19,8 @@ const ProductsPage = async (props : Props) => {
   return (
     <>
     <div> 
-      <h1>{ slug } ProductsPage</h1>  
+      <h1>{ slug } ProductsPage</h1>
+      
     </div>
     
     </>
