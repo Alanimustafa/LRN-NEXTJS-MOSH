@@ -34,9 +34,6 @@ body {
 
 @layer base {
    h1 {
-    @apply font-medium; 
-    @apply text-3xl;
-    @apply text-center;
-    @apply text-orange-300;
+    @apply font-bold text-3xl text-center text-orange-500; 
   }
 }

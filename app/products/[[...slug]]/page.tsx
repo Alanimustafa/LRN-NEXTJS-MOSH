@@ -4,12 +4,12 @@ interface Props {
     params : { slug: string[] }
 };
 
-interface productList {
-  id: number,
-  title: string,
-  size: string,
-  color: string,
-}
+// interface productList {
+//   id: number,
+//   title: string,
+//   size: string,
+//   color: string,
+// }
 
   
 
