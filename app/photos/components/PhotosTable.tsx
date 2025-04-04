@@ -17,8 +17,9 @@ interface Props {
 const PhotosTable = async ({sortOrder} : Props) => {
     const res = await fetch ('https://jsonplaceholder.typicode.com/photos');
     const photos : Photo[] = await res.json();
+
     const sortedPhotos = sort(photos).asc(photo =>
-        sortOrder === "title" ? photo.title :
+        sortOrder === "Title" ? photo.title :
         sortOrder === "url" ? photo.url :
         sortOrder === "thumbnailUrl" ? photo.thumbnailUrl :
         photo.id
@@ -50,7 +51,7 @@ const PhotosTable = async ({sortOrder} : Props) => {
             </tr> 
         </thead> 
         <tbody className='text-yellow-200 text-lg'>
-            {sortedPhotos.map(photo => (
+            {sortedPhotos.map((photo) => (
             <tr key={photo.id}>
                 <th>
                     <Link href={`/photos/${photo.id}`}>{photo.id}</Link>

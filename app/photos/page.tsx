@@ -1,5 +1,7 @@
 import React from 'react'
 import PhotosTable from './components/PhotosTable';
+
+
 const Photos = () => {
   return (
     <>
@@ -8,6 +10,7 @@ const Photos = () => {
      </div>
         <div>
             <PhotosTable/>
+            
         </div>
     </>
   )

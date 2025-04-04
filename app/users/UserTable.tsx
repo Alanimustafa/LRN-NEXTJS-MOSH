@@ -38,7 +38,9 @@ const UserTable = async ( { sortOrder} : Props) => {
 
   return ( 
     <>
-        <div>UserTable</div>
+        <div>
+          <h2>UserTable</h2>
+        </div>
         <table className='table table-bordered text-2xl text-orange-300' >
               <thead className='text-yellow-100 text-xl'>
                 <tr>
