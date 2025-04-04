@@ -1,7 +1,20 @@
+"use client"
+// This is a client component
+
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const NewUserPage = () => {
+  const router = useRouter()
+
+  const handleCreateUser = () => {
+    // Simulate user creation logic
+    alert("User created!")
+    // Redirect to the users page after user creation
+    router.push("/users")
+  }
+
   return (
     <>
       <div>
@@ -9,7 +22,7 @@ const NewUserPage = () => {
         <br />
         <Link href="/" className='btn btn-soft btn-primary'>Home</Link>
         <br />
-        <button className="btn btn-soft btn-accent">TestButton</button>
+        <button onClick={handleCreateUser} className="btn btn-soft btn-ghost p-5 text-2xl">Create</button>
       </div>
     </>
   )
