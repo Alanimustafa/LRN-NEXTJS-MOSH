@@ -11,6 +11,7 @@ const Photos = () => {
      </div>
         <div>
           <Suspense fallback={<Spinner />}>
+          
             <PhotosTable/>
           </Suspense>
         </div>
