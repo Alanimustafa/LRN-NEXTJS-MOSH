@@ -1,5 +1,8 @@
-import  React,  {Suspense}  from 'react'
+
+import React,  {Suspense}  from 'react'
 import PhotosTable from './components/PhotosTable';
+import Spinner from '@/components/Spinner';
+
 const Photos = () => {
 
   return (
