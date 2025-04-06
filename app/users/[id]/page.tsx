@@ -7,7 +7,7 @@ interface Props {
 
 const UserDetailPage = ({params: {id}} : Props) => {
   if (id > 10 || id < 1) {
-    notFound();
+    notFound(); // This will trigger the 404 page
   } 
   return (
     <div>
