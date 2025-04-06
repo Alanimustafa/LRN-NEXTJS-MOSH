@@ -1,7 +1,5 @@
-import React, {Suspense} from 'react'
 import Link from 'next/link'
 import UserTable from './UserTable';
-import Spinner from '../components/Spinner';
 
 interface Props {
   searchParams : {
@@ -27,9 +25,7 @@ console.log (sortOrder);
             {new Date().toLocaleTimeString()}
           </h2>
           <h3 className="userName text-3xl">
-            <Suspense fallback={<Spinner />}>
               <UserTable sortOrder = {sortOrder}/>
-            </Suspense>
           </h3>
           <br />
         </div>

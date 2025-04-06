@@ -1,7 +1,5 @@
 
-import React,  {Suspense}  from 'react'
 import PhotosTable from './components/PhotosTable';
-import Spinner from '@/components/Spinner';
 
 const Photos = () => {
 
@@ -11,11 +9,7 @@ const Photos = () => {
         <h1>Photos Page</h1>
      </div>
         <div>
-          <Suspense fallback={<Spinner />}>
-          
             <PhotosTable/>
-          </Suspense>
-            
         </div>
     </>
   )
