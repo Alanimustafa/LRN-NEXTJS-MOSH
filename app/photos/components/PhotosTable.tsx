@@ -11,7 +11,7 @@ interface Photo {
 };
 
 interface Props {
-    sortOrder : string;
+    sortOrder? : string;
 };
 //                     <Link href='/users?sortOrder=address'>Address</Link>     
 const PhotosTable = async ({sortOrder} : Props) => {

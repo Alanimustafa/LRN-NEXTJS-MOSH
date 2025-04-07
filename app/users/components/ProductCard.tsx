@@ -1,6 +1,5 @@
 
 import React from 'react'
-import AddToCart from './AddToCart';
 import Link from 'next/link';
 // import styles from './ProductCart.module.css';
 

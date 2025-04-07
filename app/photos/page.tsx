@@ -9,7 +9,7 @@ const Photos = () => {
         <h1>Photos Page</h1>
      </div>
         <div>
-            <PhotosTable/>
+            <PhotosTable sortOrder="asc"/>
         </div>
     </>
   )
