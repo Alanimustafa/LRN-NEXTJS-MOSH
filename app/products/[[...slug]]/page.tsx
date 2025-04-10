@@ -4,15 +4,6 @@ interface Props {
     params : { slug: string[] }
 };
 
-// interface productList {
-//   id: number,
-//   title: string,
-//   size: string,
-//   color: string,
-// }
-
-  
-
 const ProductsPage = async (props : Props) => {
     const params = await props.params;
     const { slug } = params;
