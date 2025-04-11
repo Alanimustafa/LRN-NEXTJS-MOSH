@@ -46,3 +46,17 @@ export async function PUT(
 
   return NextResponse.json({ id, name: body.name }, { status: 200 });
 }
+
+export async function DELETE(
+  request: NextRequest,
+  context: { params: { id: string } }
+) {
+  const { params } = context;
+  const id = Number(params.id); // safely convert string to number
+
+  if (isNaN(id) || id < 1 || id > 10) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+
+  return NextResponse.json({ message: "User deleted" }, { status: 200 });
+}
