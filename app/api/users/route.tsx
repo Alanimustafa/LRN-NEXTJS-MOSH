@@ -14,3 +14,11 @@ export function GET(request: Request) {
         { id: 10, name: "Hannah Ivers" },
     ]);
 }
+
+export async function POST(request: Request) {
+    const body = await request.json();
+    if (!body.name) {
+        return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    }
+    return NextResponse.json({id: 1, name: body.name}, { status: 201 });
+}
