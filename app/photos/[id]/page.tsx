@@ -1,18 +1,13 @@
-// app/photos/[id]/page.tsx
-import React from 'react';
-
-type PageProps = {
+export type PageProps = {
   params: {
     id: string;
   };
 };
 
-const PhotoPage = async ({ params }: PageProps) => {
-  const { id } = params;
-
+const PhotoPage = ({ params }: PageProps) => {
   return (
     <div>
-      <h1>Photo ID: {id}</h1>
+      <h1>Photo ID: {params.id}</h1>
     </div>
   );
 };
