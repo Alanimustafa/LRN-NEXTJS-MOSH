@@ -11,6 +11,7 @@ const NavBar = () => {
             <Link href='/admin' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">Admin</Link>
             <Link href='/about' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">About</Link>
             <Link href='/photos' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">Photos</Link>            
+            <Link href='/api/users' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">API-Users</Link>            
         </div>
     </>
   )

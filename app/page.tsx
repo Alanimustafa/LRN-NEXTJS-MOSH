@@ -9,7 +9,7 @@ export default function Home() {
           className="w-[640px] h-[480px] bg-cover bg-center rounded-lg shadow-lg"
           style={{ backgroundImage: "url('/MK-BG.png')" }}
         >
-          {/* You can put your content here */}
+          <h1 className="flex drop-shadow-lg text-4xl text-white align-bottom">Scorpion</h1>
         </div>
       </div>
     </main>
