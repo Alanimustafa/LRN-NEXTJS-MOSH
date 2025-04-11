@@ -33,13 +33,9 @@ export const Products = [
       description: "Aged cheddar cheese",
     },
   ]
-  
-export async function GET(request: NextRequest,) {
-  return NextResponse.json(Products)
-      
-  
 
-}
+export async function GET(request: NextRequest,) {
+  return NextResponse.json(Products)}
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
