@@ -1,55 +1,68 @@
 import { NextRequest, NextResponse } from "next/server";
 import schema from "../schema";
-import { NextApiRequest } from "next";
+import { Products } from "../route"; // import the Products array
 
 export async function GET(
     request: NextRequest,
-    context: { params: { id: string } } // destructure `context` instead of `params` directly
+    context: { params: { id: string } }
 ) {
-    const { params } = context;
-    const id = Number(params.id); // safely convert string to number
+    const { id } = await context.params;
+    const numericId = Number(id);
 
-    const validation = schema.safeParse(request); // validate the request body
-    if (!validation.success) {
-        return NextResponse.json(validation.error.errors); // handle validation error
+    if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+        return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
-    if (isNaN(id) || id < 1 || id > 10) {
-        return <div>User not found</div>;
+
+    const product = Products.find((product) => product.id === numericId);
+
+    if (!product) {
+        return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
-    
-    return <div>GET</div>;
+
+    return NextResponse.json(product, { status: 200 });
 }
 
+
 export async function PUT(
-    request: Request,
+    request: NextRequest,
     context: { params: { id: string } } // destructure `context` instead of `params` directly
     ) {
     const { params } = context;
     const id = Number(params.id); // safely convert string to number
-    const validation = schema.safeParse(request); // validate the request body
-    if (!validation.success) {
-        return <div>Invalid request</div>; // handle validation error
-    }
+    const body = await request.json(); // parse the request body
+    const validation = schema.safeParse(body); // validate the request body
+    
     if (isNaN(id) || id < 1 || id > 10) {
-        return <div>User not found</div>;
+        return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
     
-    return <div>PUT</div>;
+    if (!validation.success) {
+        return NextResponse.json(validation.error.errors, { status: 400}); // handle validation error
+    }
+    
+    
+    return NextResponse.json({ id, name: body.name, price: body.price, description: body.description }, { status: 200 });
     }
 
-    export function DELETE(
-        request: Request,
+    export async function DELETE(
+        request: NextRequest,
         context: { params: { id: string } }
-    ) {
-        const { params } = context;
-        const id = Number(params.id); // safely convert string to number
-        const validation = schema.safeParse(request); // validate the request body
+      ) {
+        const { id } = await context.params; // ✅ await the context.params
+        const numericId = Number(id); // ✅ don't await this
+      
+        const body = await request.json(); // ✅ parse body if needed
+        const validation = schema.safeParse(body); // ✅ validate parsed body
+      
         if (!validation.success) {
-            return <div>Invalid request</div>; // handle validation error
+          return NextResponse.json(validation.error.errors, { status: 400 });
         }
-        if (isNaN(id) || id < 1 || id > 10) {
-            return <div>User not found</div>;
+      
+        if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+          return NextResponse.json({ error: "Product not found" }, { status: 404 });
         }
-        
-        return <div>DELETE</div>;
-    }
+      
+        // Fake delete logic
+        return NextResponse.json({ message: `${body.name} product has been deleted` }, { status: 200 });
+      }
+      
