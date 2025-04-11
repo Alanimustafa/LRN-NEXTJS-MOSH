@@ -2,7 +2,9 @@
 import React from 'react'
 
 interface Props {
-    error : Error
+    error : Error;
+    reset: () => void;
+    // error: Error & { statusText: string; status: number; } | null;   
     };
 const UserError = ( {error}: Props) => {
   return (
