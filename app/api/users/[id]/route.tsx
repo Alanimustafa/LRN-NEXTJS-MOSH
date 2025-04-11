@@ -27,3 +27,22 @@ export async function GET(
   const user = await users.find((user) => user.id === id);
   return NextResponse.json(user, { status: 200 });
 }
+
+export async function PUT(
+  request: NextRequest,
+  context: { params: { id: string } }
+) {
+  const { params } = context;
+  const id = Number(params.id); // safely convert string to number
+
+  if (isNaN(id) || id < 1 || id > 10) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+
+  const body = await request.json();
+  if (!body.name) {
+    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+  }
+
+  return NextResponse.json({ id, name: body.name }, { status: 200 });
+}
