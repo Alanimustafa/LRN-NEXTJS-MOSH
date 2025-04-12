@@ -40,9 +40,10 @@ export async function PUT(
         return NextResponse.json(validation.error.errors, { status: 400}); // handle validation error
     }
     
-    
-    return NextResponse.json({ id, name: body.name, price: body.price, description: body.description }, { status: 200 });
+    return NextResponse.json({ id, name: body.name, price: body.price, description: body.description, category: body.category, email: body.email, url: body.url }, { status: 200 });
     }
+
+
 
     export async function DELETE(
         request: NextRequest,
