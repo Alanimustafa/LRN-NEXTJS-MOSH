@@ -5,6 +5,8 @@ const schema = z.object({
   price: z.number().positive(),
   description: z.string().optional(),
   category: z.string().optional(),
+  email: z.string().email().optional(),
+  url: z.string().url().optional(),
 });
 
 export default schema;
