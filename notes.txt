@@ -4,6 +4,7 @@
 Notes: 
 1- Install mySQL from mySQL.com
 2- Install DataGrip from JetBrains.
-2- Install Prisma extension.
-3- npx prisma init --> to initiate prisma in our project
-4- npx prisma format --> to clean and format the prisam schema file and make the text more readable.
+3- Install Prisma extension.
+4- npx prisma init --> to initiate prisma in our project
+5- npx prisma format --> to clean and format the prisam schema file and make the text more readable.
+6- npx prisma migrate dev --> To keep our DataBase Schema in Sync with our Prisma Schema.

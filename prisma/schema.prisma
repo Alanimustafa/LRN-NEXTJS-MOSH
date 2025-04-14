@@ -15,9 +15,10 @@ datasource db {
 }
 
 model User {
-  id        String  @id @default(cuid())
-  email     String? @unique
-  name      String?
-  followers Int     @default(0)
-  isActive  Boolean @default(true)
+  id           String   @id @default(cuid())
+  email        String?  @unique
+  name         String?
+  followers    Int      @default(0)
+  isActive     Boolean  @default(true)
+  registeredAt DateTime @default(now())
 }
