@@ -1,12 +1,34 @@
 // Chapter 5 
 // Database Integration with Prisma
 
+Definitions:
+
+mySQL -> DataBase Engine. Other database engines (Postgres, MongoDB)
+
+DataGrip -> Database IDE (Integrated Development Environment) - This tool is used to connect to the database, write and run SQL, browse tables, views, indexes, foreign keys and all schema stuff, refactor database objects, compare and sync schemas and visualize realtions between tables (ER diagrams).
+
+Prisma -> Next generation Node.js and TypeScript ORM [Object-Relation Mapping] too for Node.js and TypeScript. ORM sits between the database and the application. It helps to interact with database in a clean, type-safe way. it translates the schema to SQL for your database.
+Prisma is useful because: 
+1- Type-safe queries (catch errors at compile time)
+2- Auto-generated client for fast development
+3- Clear schema definition in one file
+4- Great developer experience (e.g., auto-complete, migrations, introspection)
+
+Installing Prisma in Bash:
+npm install prisma --save-dev
+npm install @prisma/client
+npx prisma init
+
 Notes: 
 1- Install mySQL from mySQL.com
 2- Install DataGrip from JetBrains.
 3- Install Prisma extension.
-4- npx prisma init --> to initiate prisma in our project
+4- npx prisma init --> to initiate prisma in our project and create the prisma folder which has the prisma schema in it. Also, it creates the env file.
 5- npx prisma format --> to clean and format the prisam schema file and make the text more readable.
 6- npx prisma migrate dev --> To keep our DataBase Schema in Sync with our Prisma Schema.
 7- npm prisma @prisam/client --> to add the prisma client to prisma package.
-8- npm prisma generate --> generate the prisma module.
+8- npx prisma generate --> Runs Prisma CLI (no need to install it globally)
+
+The difference between the npm and npx commands in Node.JS :
+* npm is like downloading a power tool and adding it to your toolbox.
+* npx is like renting the tool, using it once, and returning it immediately.
