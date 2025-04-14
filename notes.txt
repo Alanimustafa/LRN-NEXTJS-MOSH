@@ -8,3 +8,5 @@ Notes:
 4- npx prisma init --> to initiate prisma in our project
 5- npx prisma format --> to clean and format the prisam schema file and make the text more readable.
 6- npx prisma migrate dev --> To keep our DataBase Schema in Sync with our Prisma Schema.
+7- npm prisma @prisam/client --> to add the prisma client to prisma package.
+8- npm prisma generate --> generate the prisma module.
