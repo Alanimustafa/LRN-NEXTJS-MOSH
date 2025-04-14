@@ -7,6 +7,7 @@ mySQL -> DataBase Engine. Other database engines (Postgres, MongoDB)
 
 DataGrip -> Database IDE (Integrated Development Environment) - This tool is used to connect to the database, write and run SQL, browse tables, views, indexes, foreign keys and all schema stuff, refactor database objects, compare and sync schemas and visualize realtions between tables (ER diagrams).
 
+|| PRISMA
 Prisma -> Next generation Node.js and TypeScript ORM [Object-Relation Mapping] too for Node.js and TypeScript. ORM sits between the database and the application. It helps to interact with database in a clean, type-safe way. it translates the schema to SQL for your database.
 Prisma is useful because: 
 1- Type-safe queries (catch errors at compile time)
@@ -18,6 +19,8 @@ Installing Prisma in Bash:
 npm install prisma --save-dev
 npm install @prisma/client
 npx prisma init
+
+Prisma models: Visit prisma models on google.
 
 Notes: 
 1- Install mySQL from mySQL.com
