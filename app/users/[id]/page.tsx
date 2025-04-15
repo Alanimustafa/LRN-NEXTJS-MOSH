@@ -2,7 +2,10 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 interface Props {
-    params: { id: number }
+    params: { id: number,
+              name: string,
+              email: string
+    };
 }
 
 const UserDetailPage = ({params: {id}} : Props) => {
