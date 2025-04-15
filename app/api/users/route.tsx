@@ -1,26 +1,17 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import schema from "./schema";
+import { prisma } from "../../../prisma/client"; // or relative path
 
-export function GET(request: Request) {
-    return NextResponse.json([
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Jane Smith" },
-        { id: 3, name: "Alice Johnson" },
-        { id: 4, name: "Bob Brown" },
-        { id: 5, name: "Charlie Davis" },
-        { id: 6, name: "Diana Evans" },
-        { id: 7, name: "Ethan Foster" },
-        { id: 8, name: "Fiona Green" },
-        { id: 9, name: "George Harris" },
-        { id: 10, name: "Hannah Ivers" },
-    ]);
+export async function GET(request: NextRequest) {
+  const users = await prisma.user.findMany();
+  return NextResponse.json(users, { status: 200 });
 }
 
 export async function POST(request: Request) {
-    const body = await request.json();
-    const validation = schema.safeParse(body); // validate the request body
-    if (!validation.success) {
-        return NextResponse.json(validation.error.errors, { status: 400 });
-    }
-    return NextResponse.json({id: 1, name: body.name}, { status: 201 });
+  const body = await request.json();
+  const validation = schema.safeParse(body);
+  if (!validation.success) {
+    return NextResponse.json(validation.error.errors, { status: 400 });
+  }
+  return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
 }

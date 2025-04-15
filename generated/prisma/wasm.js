@@ -136,14 +136,14 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
-exports.Prisma.UserOrderByRelevanceFieldEnum = {
+exports.Prisma.userOrderByRelevanceFieldEnum = {
   email: 'email',
   name: 'name'
 };
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  user: 'user'
 };
 
 /**
