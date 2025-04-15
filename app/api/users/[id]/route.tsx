@@ -76,8 +76,15 @@ export async function DELETE(
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
+  const validation = schema.safeParse({ id: numericId});
+  if (!validation) {
+    return NextResponse.json({error: "User Not Found - Bad Request"}, { status: 400})
+  }
+  const deletedUser = await prisma.user.delete({
+    where: { id: numericId }
+  });
   // Example delete logic
   // await prisma.user.delete({ where: { id: numericId } });
 
-  return NextResponse.json({ message: `User with ID ${numericId} deleted` }, { status: 200 });
+  return NextResponse.json({ message: `User ${deletedUser.name} has been deleted` }, { status: 200 });
 }

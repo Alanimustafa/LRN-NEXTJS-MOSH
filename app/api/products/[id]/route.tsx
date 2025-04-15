@@ -68,22 +68,26 @@ export async function DELETE(
 ) {
   const { id } = await context.params;
   const numericId = Number(id);
-  const body = await request.json();
-  const validation = schema.safeParse(body);
-
-  if (!validation.success) {
-    return NextResponse.json(validation.error.errors, { status: 400 });
-  }
-
-  if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+  
+  if (isNaN(numericId) || numericId < 1 ) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 
+  const validation = schema.safeParse({ id: numericId });
+  if (!validation) {
+    return NextResponse.json({ error: "Product Not Found - Bad Request"}, { status: 400 });
+  }
+
+  const deletedProduct = await prisma.product.delete({
+    where: {
+      id: numericId
+    }
+  })
   // Example delete logic (if needed)
   // await prisma.product.delete({ where: { id: numericId } });
 
   return NextResponse.json(
-    { message: `${body.name} product has been deleted` },
+    { message: `${deletedProduct.name} product has been deleted` },
     { status: 200 }
   );
 }
