@@ -1,21 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import schema from "../schema";
-import { Products } from "../route"; // import the Products array
+import { prisma } from "../../../../prisma/client"; // or relative path
 
 export async function GET(
     request: NextRequest,
     context: { params: { id: string } }
 ) {
-    const { id } = await context.params;
-    const numericId = Number(id);
-
-    if (isNaN(numericId) || numericId < 1 || numericId > 10) {
-        return NextResponse.json({ error: "Product not found" }, { status: 404 });
-    }
-
-    const product = Products.find((product) => product.id === numericId);
+    // Destructure `context` to get `params`
+    const { params } = context;
+    // Safely convert string to number
+    const id = Number(params.id); // safely convert string to number
+    
+    const product = await prisma.product.findUnique({
+        where: { id: id }
+    })
 
     if (!product) {
+        return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
+    if (isNaN(id) || id < 1 || id > 10) {
         return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
