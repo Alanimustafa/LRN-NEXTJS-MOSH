@@ -34,25 +34,31 @@ export async function PUT(
   const numericId = Number(id);
   const body = await request.json();
   const validation = schema.safeParse(body);
+  const product = await prisma.product.findUnique ({
+    where: { id: numericId }
+  })
 
-  if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+  if (isNaN(numericId) || numericId < 1) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 
   if (!validation.success) {
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
+  if (!product) {
+    return NextResponse.json({ error: "Product Not Found"}, { status:400 })
+  }
 
-  // Example update logic (assuming real update needed)
-  // const updatedProduct = await prisma.product.update({
-  //   where: { id: numericId },
-  //   data: { ...body },
-  // });
+  const updatedProduct = await prisma.product.update({
+    where: { id : numericId},
+    data: {
+      name: body.name,
+      description: body.description,
+      price: body.price
+    }
+  })
 
-  return NextResponse.json({
-    id: numericId,
-    ...body,
-  }, { status: 200 });
+  return NextResponse.json(updatedProduct, { status: 200 });
 }
 
 // DELETE product

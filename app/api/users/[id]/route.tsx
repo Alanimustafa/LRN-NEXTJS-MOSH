@@ -33,24 +33,35 @@ export async function PUT(
   const { id } = await context.params;
   const numericId = Number(id);
 
-  if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+
+  if (isNaN(numericId) || numericId < 1) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
   const body = await request.json();
-  const validation = schema.safeParse(body);
 
+  const validation = schema.safeParse(body);
   if (!validation.success) {
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
 
+  const user = await prisma.user.findUnique({
+    where: { id: numericId }
+  })
+  if (!user) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
   // Example update logic
-  // const updatedUser = await prisma.user.update({
-  //   where: { id: numericId },
-  //   data: { name: body.name }
-  // });
-
-  return NextResponse.json({ id: numericId, name: body.name }, { status: 200 });
+  const updatedUser = await prisma.user.update({
+    where: { id: numericId },
+    data: { 
+      name: body.name, 
+      email: body.email, 
+    }
+  })
+  
+  
+  return NextResponse.json(updatedUser, { status: 200 });
 }
 
 // DELETE user
