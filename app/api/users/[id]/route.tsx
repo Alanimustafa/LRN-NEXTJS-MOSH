@@ -61,7 +61,7 @@ export async function DELETE(
   const { id } = await context.params;
   const numericId = Number(id);
 
-  if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+  if (isNaN(numericId) || numericId < 1 ) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 

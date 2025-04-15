@@ -10,7 +10,7 @@ export async function GET(
   const { id } = await context.params; // 👈 await the params
   const numericId = Number(id);
 
-  if (isNaN(numericId) || numericId < 1 || numericId > 10) {
+  if (isNaN(numericId) || numericId < 1) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 

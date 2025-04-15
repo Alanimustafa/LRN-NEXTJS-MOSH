@@ -14,9 +14,15 @@ export async function POST(request: NextRequest) {
   if (!validation.success) {
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
-    const { name, price, description, category, email, url} = body;  
-  return NextResponse.json(
-    { id: 1, name, price, description, category, email, url },
-    { status: 201 }
+    const product = await prisma.product.create({
+    data: {
+      name: body.name,
+      description: body.description,
+      price: body.price,
+      // We do not need to provide the other properties because they have default values in the schema.
+      // createdAt: new Date(),
+    },
+  });
+  return NextResponse.json(product, { status: 201 }
   );
 }
