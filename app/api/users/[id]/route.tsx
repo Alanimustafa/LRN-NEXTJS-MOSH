@@ -80,6 +80,14 @@ export async function DELETE(
   if (!validation) {
     return NextResponse.json({error: "User Not Found - Bad Request"}, { status: 400})
   }
+
+  const user = await prisma.user.findUnique({
+    where: { id: numericId }
+  })
+  if (!user) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+  
   const deletedUser = await prisma.user.delete({
     where: { id: numericId }
   });

@@ -78,6 +78,15 @@ export async function DELETE(
     return NextResponse.json({ error: "Product Not Found - Bad Request"}, { status: 400 });
   }
 
+  const product = await prisma.product.findUnique({
+    where: {
+      id: numericId
+    }
+  })
+  if (!product) {
+    return NextResponse.json({error: " Product Not Found"}, { status: 400})
+  }
+  
   const deletedProduct = await prisma.product.delete({
     where: {
       id: numericId
