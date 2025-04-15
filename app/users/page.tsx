@@ -22,7 +22,12 @@ const UsersPage = async ({
       >
         New User
       </Link>
-
+      <Link
+        href="/users/apiusers"
+        className="btn btn-soft btn-secondary w-40 border-red-400"
+      >
+        API users
+      </Link>
       <br />
       <br />
 

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const schema = z.object({
+const productSchema = z.object({
   name: z.string().min(3).max(50),
   price: z.number().positive(),
   description: z.string().optional(),
@@ -9,4 +9,4 @@ const schema = z.object({
   url: z.string().url().optional(),
 });
 
-export default schema;
+export default productSchema;

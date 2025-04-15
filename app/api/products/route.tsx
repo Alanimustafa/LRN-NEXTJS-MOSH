@@ -1,45 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import schema from "./schema";
+import productSchema from "../users/schema";
+import { prisma } from "../../../prisma/client"; // or relative path
 
-export const Products = [
-    {
-      id: 1,
-      name: "Milk",
-      price: 2.5,
-      description: "Fresh milk from local farms",
-    },
-    {
-      id: 2,
-      name: "Bread",
-      price: 1.5,
-      description: "Whole grain bread",
-    },
-    {
-      id: 3,
-      name: "Eggs",
-      price: 3.0,
-      description: "Organic free-range eggs",
-    },
-    {
-      id: 4,
-      name: "Butter",
-      price: 2.0,
-      description: "Creamy butter from grass-fed cows",
-    },
-    {
-      id: 5,
-      name: "Cheese",
-      price: 4.0,
-      description: "Aged cheddar cheese",
-    },
-  ]
 
 export async function GET(request: NextRequest,) {
-  return NextResponse.json(Products)}
+  const products = await prisma.product.findMany(); // Fetch products from the database
+  return NextResponse.json(products, { status: 200 }); // Return the products as JSON response
+}
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const validation = schema.safeParse(body); // validate the request body
+  const validation = productSchema.safeParse(body); // validate the request body
   if (!validation.success) {
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
