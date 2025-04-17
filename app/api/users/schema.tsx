@@ -3,7 +3,7 @@ import { z } from "zod";
 const userSchema = z.object({
   email: z.string().email().optional(),
   name: z.string().min(3).max(50),
-  followers: z.number().min(3).optional(),
+  followers: z.number().min(1).optional(),
   isActive: z.boolean().default(true),
   registeredAt: z.date().default(() => new Date())
 })
