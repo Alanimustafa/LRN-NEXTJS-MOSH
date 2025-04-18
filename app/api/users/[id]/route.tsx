@@ -57,6 +57,7 @@ export async function PUT(
     data: { 
       name: body.name, 
       email: body.email, 
+      followers: body.followers,
     }
   })
   
