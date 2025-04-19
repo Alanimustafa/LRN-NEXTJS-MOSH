@@ -15,7 +15,7 @@ const UploadPage = () => {
       console.log('Public ID:', info.public_id)
       console.log('Format:', info.format)
       console.log('Dimensions:', info.width + 'x' + info.height)
-      console.log('Bytes:', info.url)
+      console.log('URL:', info.url)
     }
   }
 

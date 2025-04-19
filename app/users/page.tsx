@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'; //It tells Next.js to treat this route as dynamic and avoid caching issues that can trigger this kind of behavior.
 
 import Link from 'next/link';
 import UserTable from './UserTable';
@@ -8,7 +8,7 @@ const UsersPage = async ({
 }: {
   searchParams?:  { sortOrder?: string };
 }) => {
-   const sortOrder = searchParams?.sortOrder || 'id';
+   const sortOrder = await searchParams?.sortOrder as string || 'id';
 
   return (
     <>
