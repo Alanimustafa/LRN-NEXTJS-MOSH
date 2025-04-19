@@ -35,3 +35,11 @@ Notes:
 The difference between the npm and npx commands in Node.JS :
 * npm is like downloading a power tool and adding it to your toolbox.
 * npx is like renting the tool, using it once, and returning it immediately.
+
+
+Cloudinary:
+1- Installation: npm install next-cloudinary@latest
+2- Next-Cloudinary Upload link: https://next.cloudinary.dev/clduploadwidget/basic-usage
+3- Cludinary Upload UI stytles link: https://demo.cloudinary.com/uw/#/
+
+Note: onUpload is not supported anymore with cloudinary V2 and V3. Instead use onSuccess.
