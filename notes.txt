@@ -43,3 +43,18 @@ Cloudinary:
 3- Cludinary Upload UI stytles link: https://demo.cloudinary.com/uw/#/
 
 Note: onUpload is not supported anymore with cloudinary V2 and V3. Instead use onSuccess.
+
+
+NEXT AUTH
+1- Website : https://next-auth.js.org
+2- Installation: npm install next-auth
+3- Create folder api/auth/[...nextauth]/route.tsx 
+    Note: [...nextauth] means catch all 
+4- create the route.tsx file which will handle the GET and POST requests to the api. Also, it exports the handler function on each of those requests.
+5- update the .env file:
+a- adding the route NEXTAUTH_URL="http://localhost:3000/api/auth"
+b- adding the sercret code to the .env file.
+    NEXTAUTH_SECRET=""
+The code could be any random characters, or we can generate it from the bash by using the command: 
+    openssl rand -base64 32
+
