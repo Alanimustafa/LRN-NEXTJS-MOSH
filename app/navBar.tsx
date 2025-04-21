@@ -1,7 +1,11 @@
+"use client";
 import Link from 'next/link'
 import React from 'react'
+import { useSession } from 'next-auth/react'
 
 const NavBar = () => {
+  const { status, data: session } = useSession();
+  
   return (
     <>
         <div className="flex bg-#cc3fc-100 border-4 border-orange-500 rounded-lg p-4">
@@ -14,6 +18,9 @@ const NavBar = () => {
             <Link href='/users/apiusers' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">API-Users</Link>            
             <Link href='/products/apiproducts' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">API-Products</Link>
             <Link href='/upload' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">Upload</Link>
+            { status === 'loading' && <p className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">Loading...</p>}
+            { status === 'authenticated' && session?.user?.name && <Link href='/api/auth/signout' className=" px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5">{session.user.name} - Logout</Link>}
+            { status ==='unauthenticated' && <Link href='/api/auth/signin' className="px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5">Login</Link>}
         </div>
     </>
   )
