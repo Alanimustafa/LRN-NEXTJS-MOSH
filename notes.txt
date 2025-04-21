@@ -57,6 +57,12 @@ NEXT AUTH
     NEXTAUTH_SECRET=""
     The code could be any random characters, or we can generate it from the bash by using the command: 
     openssl rand -base64 32
-6- Use https://next-auth.js.org to specify the authontication management provider (for example Google Auth).
+6- Use https://next-auth.js.org  The NEXT JS Authentication library to specify the authontication management provider (for example Google Auth).
+    * Installation: npm install next-auth
+    * Add the api route (or the route handler).
+    * Use the guide for the Next JS version you have, because from NEXT JS 13.2 and above, the setup is different.
+    * Route creation: Create the folder:
+        app/api/auth/[...nextauth]/route.tsx 
+        Note: [...nextauth] This is the catch-all folder this will handle any route starts with api/auth route.
 
 
