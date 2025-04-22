@@ -64,5 +64,11 @@ NEXT AUTH
     * Route creation: Create the folder:
         app/api/auth/[...nextauth]/route.tsx 
         Note: [...nextauth] This is the catch-all folder this will handle any route starts with api/auth route.
-
+7- We need to add a new env variables
+    * NEXTAUTH_URL="http://localhost:3000"
+    * NEXTAUTH_SECRET="fdsfdfsdfsdfsdfsdf" any long string.
+        or we can use the terminal and type the following command to generate the sercret a random sequense of bytes using the 64 algorithm.
+        bash: openssl rand -base64 32
+8- Configure Provider 
+    * Using the https://next-auth.js.org and select the provider to choose the desiered provider (ex: Auth0, Amazon, Facebook , etc)
 
