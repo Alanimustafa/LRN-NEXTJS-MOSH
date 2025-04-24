@@ -1,8 +1,13 @@
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
-export default function Home() {
+export default async function Home() {
+
+  const session = await getServerSession(authOptions); // Get the session from the server-side using getServerSession
 
   return (
     <main className="p-[34] font-light">
+      <h2 className="text-2xl text-amber-500 justify-self-end">Hello {session?.user!.name}</h2>
       <h1 className="text-3xl text-amber-500">HOME PAGE</h1>
       <div className="flex items-center justify-center h-screen">
         <div
