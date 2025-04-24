@@ -6,7 +6,6 @@ import { ReactNode } from "react";
 const AuthProvider = ({children}: {children: ReactNode}) => {
   return (
     <>
-        <div>AuthProvider</div>
         <SessionProvider>
             {children}
         </SessionProvider>
