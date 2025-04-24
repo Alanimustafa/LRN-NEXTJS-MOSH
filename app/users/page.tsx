@@ -8,7 +8,7 @@ const UsersPage = async ({
 }: {
   searchParams?:  { sortOrder?: string };
 }) => {
-   const sortOrder = await searchParams?.sortOrder as string || 'id';
+   const sortOrder = searchParams?.sortOrder as string || 'id';
 
   return (
     <>

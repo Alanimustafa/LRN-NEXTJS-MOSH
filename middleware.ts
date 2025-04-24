@@ -1,12 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-
-export function middleware (request: NextRequest) {
-    return NextResponse.redirect(new URL('/new-page', request.url))
-}
+import middleware from "next-auth/middleware";
+// Middleware to handle authentication and authorization for the /users route
+export default middleware;
 
 export const config = {
-    matcher: [
-        '/users/:path*'
-    ]
-}
-
+  matcher: [
+    "/users/:path*",
+    "/products/:path*",
+    "/admin/:path*",
+    "/photos/:path*",
+    "/upload/:path*",
+  ], // Apply middleware to these routes
+};
