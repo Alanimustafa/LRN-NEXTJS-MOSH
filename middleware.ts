@@ -9,10 +9,6 @@ export { default } from "next-auth/middleware"; // This imports the default midd
 
 export const config = {
   matcher: [
-    "/users/:path*",
-    "/products/:path*",
-    "/admin/:path*",
-    "/photos/:path*",
-    "/upload/:path*",
+    "/users/:path*"
   ], // Apply middleware to these routes
 };
