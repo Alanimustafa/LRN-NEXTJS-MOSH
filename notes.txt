@@ -71,4 +71,13 @@ NEXT AUTH
         bash: openssl rand -base64 32
 8- Configure Provider 
     * Using the https://next-auth.js.org and select the provider to choose the desiered provider (ex: Auth0, Amazon, Facebook , etc)
+9- Adapters: adapters are used to connect NextAuth to your database.
+    from the setup in prisma documentation in authjs.dev (previously: http://next-auth.js.org) we need to install:
+    installation:
+    npm install @prisma/client @auth/prisma-adapter
+    npm install prisma --save-dev
+
+    Initialization:
+    intialize the proisma adapter in the route file of auth folder.
+    
 

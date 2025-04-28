@@ -1,7 +1,10 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"; // Import PrismaAdapter to use Prisma with NextAuth
+import { PrismaClient } from "@prisma/client"; // Import PrismaClient to interact with the database
 
 export const authOptions = {
+    adapter: PrismaAdapter(new PrismaClient()), // Use PrismaAdapter with a new instance of PrismaClient to connect to the database
     
         providers: [
             GoogleProvider({
