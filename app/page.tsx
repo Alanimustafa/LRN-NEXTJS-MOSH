@@ -17,6 +17,11 @@ export default async function Home() {
           <h1 className="flex drop-shadow-lg text-4xl text-white align-bottom">Scorpion</h1>
         </div>
       </div>
+      <footer>
+        <div className="flex justify-center items-center h-16 bg-gray-800 text-white">
+          <p className="text-lg">© 2023 Your Company. All rights reserved.</p>
+        </div>
+      </footer>
     </main>
   );
 }
