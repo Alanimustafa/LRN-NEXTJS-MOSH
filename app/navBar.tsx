@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link'
 import React from 'react'
-import { useSession } from 'next-auth/react'
+import { useSession, signOut, signIn } from 'next-auth/react'
 
 const NavBar = () => {
   const { status, data: session } = useSession();
@@ -20,8 +20,20 @@ const NavBar = () => {
             <Link href='/upload' className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">Upload</Link>
             { status === 'loading' && <p className="px-4 py-2 bg-orange-500 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-500 hover:border-4 hover:border-orange-500 cursor-pointer mr-5">Loading...</p>}
             { status === 'authenticated' && session?.user?.name && <Link href='/api/auth/' className=" px-4 py-2  text-orange-200 border-4 border-gray-300 rounded-md  hover:bg-orange-200 hover:text-black hover:border-4 hover:border-orange-200 cursor-pointer mr-5">{session.user.name}</Link>}
-            { status === 'authenticated' && session?.user?.name && <Link href='/api/auth/signout' className=" px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5">Logout</Link>}
-            { status ==='unauthenticated' && <Link href='/api/auth/signin' className="px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md  hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5">Login</Link>}
+            {status === 'authenticated' && session?.user?.name && (
+              <button
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5"
+              >
+                Logout
+              </button>
+          )}
+            { status ==='unauthenticated' && <button
+                onClick={() => signIn( undefined, { callbackUrl: '/' })}
+                className="px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5"
+              >
+                Login
+              </button>}
         </div>
     </>
   )

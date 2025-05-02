@@ -2,8 +2,10 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"; // Import PrismaAdapter to use Prisma with NextAuth
 import { PrismaClient } from "@prisma/client"; // Import PrismaClient to interact with the database
+import { NextAuthOptions } from "next-auth"; // Import NextAuthOptions type for TypeScript support
 
-export const authOptions = {
+export const authOptions : NextAuthOptions = { // Define the authentication options for NextAuth
+
     adapter: PrismaAdapter(new PrismaClient()), // Use PrismaAdapter with a new instance of PrismaClient to connect to the database
     
         providers: [
@@ -14,7 +16,10 @@ export const authOptions = {
             // Add other providers here if needed
         ], // Add your authentication providers here
         // Add any other NextAuth configuration options here
-        }
+        session: {
+            strategy: "jwt", // Use JWT for session management
+        },
+    }
 
 const handler = NextAuth(authOptions); // Create the NextAuth handler with the specified options.
 
