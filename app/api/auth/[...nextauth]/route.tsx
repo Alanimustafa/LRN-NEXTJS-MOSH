@@ -7,6 +7,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt"; // Import bcrypt for password hashing and comparison
 import { prisma } from "prisma/client";
 
+
 export const authOptions : NextAuthOptions = { // Define the authentication options for NextAuth
 
     adapter: PrismaAdapter(new PrismaClient()), // Use PrismaAdapter with a new instance of PrismaClient to connect to the database
@@ -33,8 +34,6 @@ export const authOptions : NextAuthOptions = { // Define the authentication opti
                         return null; // Return null if password does not match
                     }
                     return user; // Return the user object if authentication is successful
-                
-
                 },
 }),
             GoogleProvider({
