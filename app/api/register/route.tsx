@@ -5,7 +5,7 @@ import bcrypt from "bcrypt"; // Import bcrypt for password hashing
 
 
 const schema = z.object({
-    userName: z.string().min(3).max(20), // Validate that userName is a string between 3 and 20 characters
+    username: z.string().min(3).max(20), // Validate that userName is a string between 3 and 20 characters
     email: z.string().email(),
     password: z.string().min(5)
 });
@@ -33,9 +33,10 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(body.password, 10); // Hash the password using bcrypt with a salt rounds of 10
     const newUser = await prisma.user.create({ // Create a new user in the database with the provided email and hashed password
         data: {
-            userName: body.userName,
+            username: body.username,
+            email: body.email,
             password: hashedPassword,
         },
     });
-    return NextResponse.json(newUser.email, { status: 201 }); // Return a 201 Created response with the new user object 
+    return NextResponse.json(newUser.username, { status: 201 }); // Return a 201 Created response with the new user object 
 }
