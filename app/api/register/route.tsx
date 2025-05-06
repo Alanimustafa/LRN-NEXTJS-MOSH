@@ -5,6 +5,7 @@ import bcrypt from "bcrypt"; // Import bcrypt for password hashing
 
 
 const schema = z.object({
+    userName: z.string().min(3).max(20), // Validate that userName is a string between 3 and 20 characters
     email: z.string().email(),
     password: z.string().min(5)
 });
@@ -16,7 +17,7 @@ export async function POST(request: NextRequest) {
     if (!validation.success) {
         return NextResponse.json(validation.error.errors, { status: 400 }); // Return a 400 Bad Request response with validation errors
     }
-    const user = prisma.user.findUnique(
+    const user = await prisma.user.findUnique(
         {
             where: {
                 email: body.email,
@@ -32,7 +33,7 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(body.password, 10); // Hash the password using bcrypt with a salt rounds of 10
     const newUser = await prisma.user.create({ // Create a new user in the database with the provided email and hashed password
         data: {
-            email: body.email,
+            userName: body.userName,
             password: hashedPassword,
         },
     });
