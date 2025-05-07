@@ -77,6 +77,9 @@ NEXT AUTH
     npm install @prisma/client @auth/prisma-adapter
     npm install prisma --save-dev
 
+
+    Note: after a change in prisma schema run "npx prisma generate"
+
     Initialization:
     intialize the proisma adapter in the route file of auth folder.
     

@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     data: {
       email: body.email,
       name: body.name,
-      followers: body.followers,
+      // followers: body.followers,
       // We do not need to provide the other properties becasue they have default values in the schema.
       // followers: body.followers,
       // isActive: body.isActive,
