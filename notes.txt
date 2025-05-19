@@ -77,6 +77,10 @@ NEXT AUTH
     npm install @prisma/client @auth/prisma-adapter
     npm install prisma --save-dev
 
+10 Setting up react email.
+    All react email documentations are at https://react.email/
+    Installation: Install the react email library with the components using the following command.
+        npm i react-email @react-email/components
 
     Note: after a change in prisma schema run "npx prisma generate"
 
