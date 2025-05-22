@@ -12,7 +12,7 @@ export default async function Home() {
       </main>
     );
   }
-  console.log(session);
+  console.log(session); // Log the session object to the console for debugging purposes
   return (
     <main className="p-[34] font-light">
       <h2 className="text-2xl text-amber-500 justify-self-end">Hello {session?.user!.email}</h2>

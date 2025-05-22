@@ -28,7 +28,7 @@ const NavBar = () => {
                 Logout
               </button>
           )}
-            { status !=='unauthenticated' && (<button
+            { status ==='unauthenticated' && (<button
                 onClick={() => signIn( undefined, { callbackUrl: '/' })}
                 className="px-4 py-2 bg-orange-200 text-black border-4 border-gray-300 rounded-md hover:bg-black hover:text-orange-200 hover:border-4 hover:border-orange-200 cursor-pointer mr-5"
               >
