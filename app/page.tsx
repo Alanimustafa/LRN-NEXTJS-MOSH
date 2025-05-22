@@ -5,9 +5,17 @@ export default async function Home() {
 
   const session = await getServerSession(authOptions); // Get the session from the server-side using getServerSession
 
+  if (!session) {
+    return (
+      <main className="flex flex-col items-center justify-center h-screen">
+        <h1 className="text-3xl text-amber-500">Please log in to access this page.</h1>
+      </main>
+    );
+  }
+  console.log(session);
   return (
     <main className="p-[34] font-light">
-      <h2 className="text-2xl text-amber-500 justify-self-end">Hello {session?.user!.name}</h2>
+      <h2 className="text-2xl text-amber-500 justify-self-end">Hello {session?.user!.email}</h2>
       <h1 className="text-3xl text-amber-500">HOME PAGE</h1>
       <div className="flex items-center justify-center h-screen">
         <div
