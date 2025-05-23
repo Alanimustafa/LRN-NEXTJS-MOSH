@@ -83,6 +83,8 @@ NEXT AUTH
         npm i react-email @react-email/components
     
         In the package.json, in the script object we need to add "preview-email": "email dev -p 3030". This property is to preview the email by using the react-email library, and it has to be on different port, it takes by default the port 3000, we need to let this preview use an alternaive port, 3030 in the exmple above.
+        Also we need to run the email preview package from package.json to preview our email.
+        npm run preview-email 
 
     Note: after a change in prisma schema run "npx prisma generate"
 
