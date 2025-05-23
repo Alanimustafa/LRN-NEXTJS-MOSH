@@ -86,6 +86,15 @@ NEXT AUTH
         Also we need to run the email preview package from package.json to preview our email.
         npm run preview-email 
 
+        Sending emails
+        1- use resend.com from react.email. Resend tool is used to send emails, you can sin in for free, it gives you up to 3000 email per month. 
+        2- Generate a key and copt that key to the .env file and name it to a variable (ex RESEND_API_KEY)
+        3- Install the resend. 
+            npm install resend
+        4- In the api folder create send-email folder.
+        5- In send-email folder create a route.tsx file
+
+
     Note: after a change in prisma schema run "npx prisma generate"
 
     Initialization:
