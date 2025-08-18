@@ -50,7 +50,7 @@ const UploadPage = () => {
     {publicId && (
         <>
             <CldImage src={publicId} width={230} height={240} alt="Uploaded Image" className='border-b-blue-400'/>
-            <p>{fileName}</p>
+            <p className='bg-red-500 border-2 w-fit m-1'>{fileName}</p>
         </>
 )}
         <CldUploadWidget 
